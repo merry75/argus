@@ -6,5 +6,5 @@ npm install on root folder and npm install on client folder
 
 npm run dev (will lose concurrently both front and back end at same time)
 
-#Dev
+# Dev
 npm run server (to test and get served front and back end at same time).
