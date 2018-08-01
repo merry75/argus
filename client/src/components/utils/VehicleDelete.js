@@ -19,16 +19,12 @@ class VehicleDelete extends Component {
     });
   }
 
-  deleteVehicle(rule) {
+  deleteVehicle() {
     // console.log(this.props.vehicle);
     // console.log("-------------");
     // console.log(this.state.vehicles);
     // console.log("-------------");
-    // this.setState(() => ({
-    //   vehicles: this.props.vehicle.filter(v => v.id !== this.props.vehicle.id)
-    // }));
-
-    this.props.deleteVehicle(this.props.vehicle.data._id);
+    this.props.deleteVehicle(this.props.vehicle._id);
 
     this.toggle();
   }
@@ -47,7 +43,9 @@ class VehicleDelete extends Component {
           toggle={() => this.toggle()}
           className={this.props.className}
         >
-          <ModalHeader toggle={() => this.toggle()}>Delete Your Vehicle</ModalHeader>
+          <ModalHeader toggle={() => this.toggle()}>
+            Delete Your Vehicle
+          </ModalHeader>
           <ModalBody>
             <div>
               <h6>

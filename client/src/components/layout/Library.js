@@ -12,11 +12,15 @@ class Library extends Component {
 
   render() {
     const { vehicles } = this.props;
+    console.log("library", this.props.vehicles);
     let vehicleItem;
     if (vehicles.vehicles.length > 0) {
+      console.log("test2", vehicles);
       vehicleItem = vehicles.vehicles.map(vehicle => (
-        <VehicleItem key={vehicle.data._id} vehicle={vehicle} />
+        <VehicleItem key={vehicle._id} vehicle={vehicle} />
       ));
+    } else {
+      vehicleItem = <h3>Loading...meanwhile chew some gums :)</h3>;
     }
     return (
       <div className="vehicles">
@@ -37,7 +41,8 @@ class Library extends Component {
 }
 
 Library.propTypes = {
-  getVehicles: PropTypes.func.isRequired
+  getVehicles: PropTypes.func.isRequired,
+  vehicles: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

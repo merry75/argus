@@ -10,17 +10,10 @@ class VehicleItem extends Component {
     return (
       <div className="card card-body bg-light mb-3">
         <div className="row">
-          <div className="col-4">
-            <img
-              src={vehicle.image}
-              alt={`${vehicle.title}`}
-              className="img-thumbnail"
-            />
-          </div>
           <div className="col-lg-6 col-md-4 col-8">
-            <h3>{vehicle.data.name}</h3>
+            <h3>{vehicle.name}</h3>
             <p>
-              type: <span>{vehicle.data.type}</span>
+              type: <span>{vehicle.type}</span>
             </p>
             <div className="btn-group">
               <VehicleEdit vehicle={vehicle} />

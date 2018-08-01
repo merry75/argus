@@ -20,12 +20,12 @@ export const getVehiclesRequest = () => ({
   type: GET_VEHICLES_REQUEST
 });
 
-export const getVehiclesSuccess = ( vehicles ) => ({
+export const getVehiclesSuccess = vehicles => ({
   type: GET_VEHICLES_SUCCESS,
   vehicles
 });
 
-export const getVehiclesError = ( error ) => ({
+export const getVehiclesError = error => ({
   type: GET_VEHICLES_ERROR,
   error
 });
@@ -34,12 +34,12 @@ export const addVehicleRequest = () => ({
   type: ADD_VEHICLE_REQUEST
 });
 
-export const addVehicleSuccess = ( vehicle ) => ({
+export const addVehicleSuccess = vehicle => ({
   type: ADD_VEHICLE_SUCCESS,
   vehicle
 });
 
-export const addVehicleError = ( error ) => ({
+export const addVehicleError = error => ({
   type: ADD_VEHICLE_ERROR,
   error
 });
@@ -48,12 +48,12 @@ export const editVehicleRequest = () => ({
   type: EDIT_VEHICLE_REQUEST
 });
 
-export const editVehicleSuccess = ( vehicle ) => ({
+export const editVehicleSuccess = vehicle => ({
   type: EDIT_VEHICLE_SUCCESS,
   vehicle
 });
 
-export const editVehicleError = ( error ) => ({
+export const editVehicleError = error => ({
   type: EDIT_VEHICLE_ERROR,
   error
 });
@@ -62,21 +62,24 @@ export const deleteVehicleRequest = () => ({
   type: DELETE_VEHICLE_REQUEST
 });
 
-export const deleteVehicleSuccess = ( id ) => ({
+export const deleteVehicleSuccess = id => ({
   type: DELETE_VEHICLE_SUCCESS,
   id
 });
 
-export const deleteVehicleError = ( error ) => ({
+export const deleteVehicleError = error => ({
   type: DELETE_VEHICLE_ERROR,
   error
 });
 
-export const getVehicles = () => ( dispatch ) => {
+export const getVehicles = () => dispatch => {
   dispatch(getVehiclesRequest());
-  axios.get(`${API_URL}/`)
+  axios
+    .get(`${API_URL}/`)
     .then(response => {
-      return response.json();
+      console.log("test get actions", response.data);
+      //response or response.json()
+      return response.data;
     })
     .then(vehicles => {
       dispatch(getVehiclesSuccess(vehicles));
@@ -86,11 +89,12 @@ export const getVehicles = () => ( dispatch ) => {
     });
 };
 
-export const addVehicle = ( name, type ) => ( dispatch ) => {
+export const addVehicle = (name, type) => dispatch => {
   dispatch(addVehicleRequest());
-  axios.post(`${API_URL}/`, { name, type })
+  axios
+    .post(`${API_URL}/`, { name, type })
     .then(response => {
-      return response;
+      return response.data;
     })
     .then(vehicle => {
       dispatch(addVehicleSuccess(vehicle));
@@ -100,11 +104,12 @@ export const addVehicle = ( name, type ) => ( dispatch ) => {
     });
 };
 
-export const editVehicle = ( id, name, type ) => ( dispatch ) => {
+export const editVehicle = (id, name, type) => dispatch => {
   dispatch(editVehicleRequest());
-  axios.put(`${API_URL}/${id}`, { name, type })
+  axios
+    .put(`${API_URL}/${id}`, { name, type })
     .then(response => {
-      return response;
+      return response.data;
     })
     .then(vehicle => {
       console.log(vehicle);
@@ -115,9 +120,10 @@ export const editVehicle = ( id, name, type ) => ( dispatch ) => {
     });
 };
 
-export const deleteVehicle = ( id ) => ( dispatch ) => {
+export const deleteVehicle = id => dispatch => {
   dispatch(deleteVehicleRequest());
-  axios.delete(`${API_URL}/${id}`)
+  axios
+    .delete(`${API_URL}/${id}`)
     .then(response => {
       dispatch(deleteVehicleSuccess(id));
     })

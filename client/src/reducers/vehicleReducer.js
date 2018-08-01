@@ -1,4 +1,4 @@
-import { 
+import {
   GET_VEHICLES_REQUEST,
   GET_VEHICLES_SUCCESS,
   GET_VEHICLES_ERROR,
@@ -21,19 +21,26 @@ let initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_VEHICLES_REQUEST || ADD_VEHICLE_REQUEST || EDIT_VEHICLE_REQUEST || DELETE_VEHICLE_REQUEST:
+    case GET_VEHICLES_REQUEST ||
+      ADD_VEHICLE_REQUEST ||
+      EDIT_VEHICLE_REQUEST ||
+      DELETE_VEHICLE_REQUEST:
       return {
         ...state,
         loading: true,
         error: null
       };
-    case GET_VEHICLES_ERROR || ADD_VEHICLE_ERROR || EDIT_VEHICLE_ERROR || DELETE_VEHICLE_ERROR:
+    case GET_VEHICLES_ERROR ||
+      ADD_VEHICLE_ERROR ||
+      EDIT_VEHICLE_ERROR ||
+      DELETE_VEHICLE_ERROR:
       return {
         ...state,
         loading: false,
         error: action.error
       };
     case GET_VEHICLES_SUCCESS:
+      // console.log("test reducer", action.vehicles);
       return {
         ...state,
         loading: false,
@@ -44,19 +51,23 @@ export default function(state = initialState, action) {
         ...state,
         loading: false,
         vehicles: [...state.vehicles, action.vehicle]
-      }
+      };
     case EDIT_VEHICLE_SUCCESS:
-      const foundIndex1 = state.vehicles.findIndex(vehicle => vehicle.data._id === action.vehicle.data._id);
+      const foundIndex1 = state.vehicles.findIndex(
+        vehicle => vehicle._id === action.vehicle._id
+      );
       if (foundIndex1 > -1) {
         state.vehicles[foundIndex1] = action.vehicle;
       }
       return {
         ...state,
-        loading: false,
-      }
+        loading: false
+      };
     case DELETE_VEHICLE_SUCCESS:
       let removedArray = state.vehicles;
-      const foundIndex2 = state.vehicles.findIndex(vehicle => vehicle.data._id === action.id);
+      const foundIndex2 = state.vehicles.findIndex(
+        vehicle => vehicle._id === action.id
+      );
       if (foundIndex2 > -1) {
         removedArray.splice(foundIndex2, 1);
       }
@@ -64,7 +75,7 @@ export default function(state = initialState, action) {
         ...state,
         loading: false,
         vehicles: removedArray
-      }
+      };
     default:
       return state;
   }
