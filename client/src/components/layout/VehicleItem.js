@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import VehicleEdit from "../utils/VehicleEdit";
 import VehicleDelete from "../utils/VehicleDelete";
+import VehicleDetail from "../utils/VehicleDetail";
 
 class VehicleItem extends Component {
   render() {
@@ -13,11 +14,12 @@ class VehicleItem extends Component {
           <div className="col-lg-6 col-md-4 col-8">
             <h3>{vehicle.name}</h3>
             <p>
-              type: <span>{vehicle.type}</span>
+              TYPE : <span>{vehicle.type}</span>
             </p>
             <div className="btn-group">
               <VehicleEdit vehicle={vehicle} />
               <VehicleDelete vehicle={vehicle} />
+              <VehicleDetail vehicle={vehicle} />
             </div>
           </div>
         </div>

@@ -50,11 +50,11 @@ class VehicleDelete extends Component {
             <div>
               <h6>
                 You are going to delete the vehicle: <br />{" "}
-                <span className="del-vehicle-title">
-                  {" "}
-                  {this.props.vehicle.name} {this.props.vehicle.type}
-                </span>{" "}
               </h6>
+              <span className="del-vehicle-title">
+                {" "}
+                {this.props.vehicle.name} - {this.props.vehicle.type}
+              </span>{" "}
             </div>
           </ModalBody>
           <ModalFooter>

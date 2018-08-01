@@ -8,8 +8,8 @@ class VehicleAdd extends Component {
     super(props);
     this.state = {
       modal: false,
-      name: '',
-      type: ''
+      name: "",
+      type: ""
     };
 
     // this.toggle = this.toggle.bind(this);
@@ -23,26 +23,29 @@ class VehicleAdd extends Component {
   }
 
   handleNameChange(e) {
-    this.setState({name: e.target.value});
+    this.setState({ name: e.target.value });
   }
 
   handleTypeChange(e) {
-    this.setState({type: e.target.value});
+    this.setState({ type: e.target.value });
   }
 
   onAdd() {
     this.props.addVehicle(this.state.name, this.state.type);
     this.toggle();
     this.setState({
-      name: '',
-      type: ''
+      name: "",
+      type: ""
     });
   }
 
   render() {
     return (
       <div>
-        <Button className="btn btn-md btn-info mr-2" onClick={() => this.toggle()}>
+        <Button
+          className="btn btn-md btn-info mr-2"
+          onClick={() => this.toggle()}
+        >
           {this.props.buttonLabel}Add a Vehicle
         </Button>
         <Modal
@@ -53,10 +56,28 @@ class VehicleAdd extends Component {
           <ModalHeader toggle={() => this.toggle()}>Add a Vehicle</ModalHeader>
           <ModalBody>
             <form>
-              <label htmlFor="car-name">Name </label>
-              <input onChange={e => this.handleNameChange(e)} value={this.state.name} name="car-name" id="car-name" />
-              <label htmlFor="car-type">Type </label>
-              <input onChange={e => this.handleTypeChange(e)} value={this.state.type} name="car-type" id="car-type" />
+              <div>
+                <label htmlFor="car-type">Type </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  onChange={e => this.handleNameChange(e)}
+                  value={this.state.name}
+                  name="car-name"
+                  id="car-name"
+                />
+              </div>
+              <div>
+                <label htmlFor="car-name">Name </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  onChange={e => this.handleNameChange(e)}
+                  value={this.state.name}
+                  name="car-name"
+                  id="car-name"
+                />
+              </div>
             </form>
           </ModalBody>
           <ModalFooter>

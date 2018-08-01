@@ -14,7 +14,7 @@ router.get("/test", (req, res) => res.json({ msg: "vehicles route test" }));
 
 router.post("/", (req, res) => {
   new Vehicle(req.body).save().then(vehicle => res.json(vehicle));
-  console.log("test", req.body);
+  // console.log("test", req.body);
 });
 
 // @route   DELETE api/vehicles
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 // @access  Public
 router.delete("/:id", (req, res) => {
   Vehicle.findById(req.params.id).then(vehicle => {
-    console.log("test2", req.params.id);
+    // console.log("test2", req.params.id);
     vehicle.remove().then(() => res.json({ success: true }));
   });
 });

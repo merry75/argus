@@ -12,10 +12,10 @@ class Library extends Component {
 
   render() {
     const { vehicles } = this.props;
-    console.log("library", this.props.vehicles);
+    // console.log("library", this.props.vehicles);
     let vehicleItem;
     if (vehicles.vehicles.length > 0) {
-      console.log("test2", vehicles);
+      // console.log("test to check if vehicles if populated correctly", vehicles);
       vehicleItem = vehicles.vehicles.map(vehicle => (
         <VehicleItem key={vehicle._id} vehicle={vehicle} />
       ));

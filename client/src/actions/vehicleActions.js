@@ -77,8 +77,8 @@ export const getVehicles = () => dispatch => {
   axios
     .get(`${API_URL}/`)
     .then(response => {
-      console.log("test get actions", response.data);
-      //response or response.json()
+      //console.log("test get actions", response.data);
+      //response
       return response.data;
     })
     .then(vehicles => {
@@ -112,7 +112,6 @@ export const editVehicle = (id, name, type) => dispatch => {
       return response.data;
     })
     .then(vehicle => {
-      console.log(vehicle);
       dispatch(editVehicleSuccess(vehicle));
     })
     .catch(error => {

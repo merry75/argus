@@ -62,6 +62,8 @@ class VehicleEdit extends Component {
             <form>
               <label htmlFor="car-name">Name </label>
               <input
+                className="form-control"
+                type="text"
                 onChange={e => this.handleNameChange(e)}
                 value={this.state.name}
                 name="car-name"
@@ -69,6 +71,8 @@ class VehicleEdit extends Component {
               />
               <label htmlFor="car-type">Type </label>
               <input
+                className="form-control"
+                type="text"
                 onChange={e => this.handleTypeChange(e)}
                 value={this.state.type}
                 name="car-type"
