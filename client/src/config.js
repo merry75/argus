@@ -1,2 +1,2 @@
-export const API_URL = 
-  process.env.API_URL || "http://localhost:5000/api/vehicles";
+export const API_URL =
+  process.env.API_URL || "https://argus-project.herokuapp.com/";
