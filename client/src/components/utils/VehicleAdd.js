@@ -57,7 +57,7 @@ class VehicleAdd extends Component {
           <ModalBody>
             <form>
               <div>
-                <label htmlFor="car-type">Type </label>
+                <label htmlFor="car-name">Name </label>
                 <input
                   className="form-control"
                   type="text"
@@ -68,14 +68,14 @@ class VehicleAdd extends Component {
                 />
               </div>
               <div>
-                <label htmlFor="car-name">Name </label>
+                <label htmlFor="car-type">Type </label>
                 <input
                   className="form-control"
                   type="text"
-                  onChange={e => this.handleNameChange(e)}
-                  value={this.state.name}
-                  name="car-name"
-                  id="car-name"
+                  onChange={e => this.handleTypeChange(e)}
+                  value={this.state.type}
+                  name="car-type"
+                  id="car-type"
                 />
               </div>
             </form>

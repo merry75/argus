@@ -32,6 +32,13 @@ class VehicleEdit extends Component {
   }
 
   onEdit() {
+    if (
+      this.state.type !== "SUV" &&
+      this.state.type !== "Hybrid" &&
+      this.state.type !== "Truck"
+    ) {
+      return;
+    }
     this.props.editVehicle(
       this.props.vehicle._id,
       this.state.name,

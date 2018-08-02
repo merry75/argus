@@ -10,7 +10,7 @@ const VehicleSchema = new Schema({
   type: {
     type: String,
     enum: ["SUV", "Truck", "Hybrid"]
-  },
+  }
   // timestamps: {
   //   createdAt: "created_at"
   // }
@@ -22,7 +22,7 @@ VehicleSchema.methods.serialize = function() {
   return {
     id: this._id,
     name: this.name,
-    type: this.type,
+    type: this.type
     // timestamps: this.timestamps
   };
 };
